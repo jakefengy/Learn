@@ -23,10 +23,12 @@
                             <maxIdleTime>30000</maxIdleTime>
                         </connector>
                     </connectors>
+                    <!--修改静态资源存放目录-->
                     <webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>
                     <contextPath>/</contextPath>
                 </configuration>
             </plugin>
+            <!--添加JDK 1.8支持-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -38,7 +40,43 @@
             </plugin>
         </plugins>
     </build>
-    
+
+    <!--添加Maven仓库源-->
+    <!--默认远程仓库，文件位置：apache-maven-3.5.0\lib\maven-model-builder-3.5.0.jar\org\apache\maven\model中的pom-4.0.0.xml-->
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>central</id>-->
+            <!--<name>Central Repository</name>-->
+            <!--<url>http://repo1.maven.org/maven2/</url>-->
+            <!--只下载稳定版-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+    <!--插件下载描述，同样保存在pom-4.0.0.xml中-->
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>central</id>-->
+            <!--<name>Central Repository</name>-->
+            <!--<url>https://repo.maven.apache.org/maven2</url>-->
+            <!--<layout>default</layout>-->
+            <!--<snapshots>-->
+                <!--<enabled>false</enabled>-->
+            <!--</snapshots>-->
+            <!--<releases>-->
+                <!--<updatePolicy>never</updatePolicy>-->
+            <!--</releases>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories> -->
+
+    <!--添加jar依赖文件-->
+
+    <!--统一管理jar版本-->
+    <properties>
+
+    </properties>
     <dependencies>
         <!--dependency>
           <groupId>com.example</groupId>
