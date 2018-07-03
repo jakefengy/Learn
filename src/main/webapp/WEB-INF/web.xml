@@ -6,7 +6,7 @@
 
     <!--配置程序默认界面-->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index</welcome-file>
     </welcome-file-list>
 
     <!--(spring-mvc)配置DispatcherServlet-->
@@ -23,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>spring-mvc</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>spring-mvc</servlet-name>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
     <!-- Servlet Filters ================================================ -->

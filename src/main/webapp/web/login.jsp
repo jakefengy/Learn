@@ -12,7 +12,7 @@
 </head>
 <body>
 
-Hello world Login Page
+Hello Spring - MVC
 
 </body>
 </html>
