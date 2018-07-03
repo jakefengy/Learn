@@ -29,6 +29,40 @@
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
+    <!--错误界面跳转-->
+    <error-page>
+        <error-code>400</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>413</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>502</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>503</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <error-code>504</error-code>
+        <location>/fail.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/fail.html</location>
+    </error-page>
+
     <!-- Servlet Filters ================================================ -->
 
     <!-- Filter mappings ================================================ -->
