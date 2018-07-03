@@ -9,6 +9,31 @@
         <welcome-file>index</welcome-file>
     </welcome-file-list>
 
+    <!--设置监听器，主要有三类：-->
+    <!--1、ServletContextListener：用于对Servlet整个上下文进行监听（创建、销毁）-->
+    <!--    1.1、ServletContextAttributeListener：对Servlet上下文属性的监听（增删改属性）-->
+    <!--2、HttpSessionListener：对Session的整体状态的监听-->
+    <!--    2.1、HttpSessionAttributeListener：对Session的属性监听-->
+    <!--    2.2、销毁：手工使session失效；session超时，web.xml配置；-->
+    <!--3、ServletRequestListener：对Request请求进行监听（创建、销毁）-->
+    <!--    3.1、ServletRequestAttributeListener：对Request属性的监听（增删改属性）-->
+
+    <!--设置session超时时间 单位：分钟-->
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+    <!--设置监听器-->
+    <listener>
+        <listener-class>com.fanzhuo.framework.listener.InitializeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.fanzhuo.framework.listener.StartupListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.fanzhuo.framework.listener.ActiveUsersListener</listener-class>
+    </listener>
+
     <!--(spring-mvc)配置DispatcherServlet-->
     <servlet>
         <servlet-name>spring-mvc</servlet-name>
@@ -62,16 +87,6 @@
         <exception-type>java.lang.Exception</exception-type>
         <location>/fail.html</location>
     </error-page>
-
-    <!-- Servlet Filters ================================================ -->
-
-    <!-- Filter mappings ================================================ -->
-
-    <!-- Servlet Context Listener ======================================= -->
-
-    <!-- Servlet Configuration ========================================== -->
-
-    <!-- URL space mappings ============================================= -->
 
 </web-app>
         
