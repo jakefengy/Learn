@@ -1,0 +1,104 @@
+
+Spring Security 5.0.xsd命名空间归类
+
+开启debug：debug
+
+一、Web/Http安全：通过建立filter和相关的service bean来实习那框架的认证机制。基本流程
+	1、初始化FilterChain
+	2、创建并添加Filter和Handler
+	3、校验，并执行相应的Handler
+包含的标签有：
+
+	1、filter-chain
+	2、filter-chain-map
+	3、custom-filter
+	4、filter-security-metadata-source
+
+	5、http
+	    身份认证
+	    anonymous：
+                是否开启匿名认证
+        form-login：
+                登录验证，UsernamePasswordAuthenticationFilter
+		jee：
+		        基于J2EE容器的身份认证
+		openid-login：
+		        类似form-login的验证方式
+            attribute-exchange：
+                openid-attribute：
+		x509：
+		        X.509认证
+		custom-filter：
+		        自定义Filter
+        防止攻击
+		cors：
+		        实现跨域访问，绕过frame-options的same origin限制
+		csrf：
+		        CSRF(Cross-site request forgery)跨站请求伪造攻击。默认值false，默认开启对CSRF的防范
+		headers
+		    cache-control：
+		            浏览器是否缓存
+		    content-security-policy：
+		            CSP内容安全策略，作为对frame-option同源限制的补充。限定页面中的资源的来源，如img-src、font-src等
+		    content-type-options：
+		            服务器提醒客户端一定要遵循在Content-Type中，对MIME类型的设定。如果返回的资源类型并不存在与MIME，浏览器则不会显示该
+		        资源：X-Content-Type-Options: nosniff
+		    frame-options：
+		            常用于同源限制。如：防止网页放在iframe中
+		    header：添加额外的头文件，指定key-value
+		    hsts：
+		            强制客户端（浏览器）使用HTTPS与服务器创建连接。当hsts为启用时，response的头文件中会带有Strict-Transport-Security
+		        标签，指定作用区域，和有效时长，如：Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+		    hpkp：
+                    HTTP 公钥固定扩展（HTTP Public Key Pinning），防止中间人攻击（貌似现在已不用）
+                pins：
+                    pin：指定使用base64编码SPKI指纹值和加密哈希算法的属性
+		    xss-protection：
+		            防止跨站脚本攻击，需明确指定启用xss-protection-enabled=enable
+
+		http-basic：
+                basic验证，在头部添加basic验证信息的方式
+		intercept-url：
+		        指定URL路径的访问权限，规则等
+		logout：
+                添加并配置用户注销拦截器，LogoutFilter，指定登出路径，登出回调等
+		port-mappings：
+                定义http和https端口之间的映射列表，以便在重定向中使用
+		remember-me：
+		        常用的“记住我”功能。成功认证一次之后在一定的时间内可以不用再输入用户名和密码进行登录了，系统会自动登录。http://wiki.jikexueyuan.com/project/spring-security/remember-me.html
+		request-cache：
+                缓存请求。https://segmentfault.com/a/1190000004183264
+		session-management：
+                session管理。http://wiki.jikexueyuan.com/project/spring-security/session-manager.html
+
+		access-denied-handler：
+		        访问被拒绝的回调方法
+		expression-handler：
+		        通过xml配置文件，定义SecurityExpressionHandler，spring security 异常处理
+
+二、AuthenticationManager：处理认证请求
+	1、authentication-manager
+
+三、UserDetailsService：跟AuthenticationProvider密切相关，用来获取用户信息
+	1、user-service
+	2、ldap-user-server
+		ldap-server
+	3、jdbc-user-service
+
+四、AccessDecisionManager：为web或方法的安全提供访问决策。
+	1、websocket-message-broker
+		intercept-message
+
+五、控制访问权限的：
+	1、intercept-methods
+		2、method-security-metadata-source
+	2、global-method-security
+	3、
+
+
+
+
+
+
+
